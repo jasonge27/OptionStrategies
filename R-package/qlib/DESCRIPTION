@@ -1,0 +1,15 @@
+Package: qlib
+Type: Package
+Title: What the package does (short line)
+Version: 1.0
+Date: 2016-09-10
+Author: CatZ
+Maintainer: CatZ <feed_me_mahimahi@gmail.com>
+Description: More about what it does (maybe more than one line)
+License: GPL (>= 2)
+Depends:
+    data.table (>= 1.9.6)
+Imports:
+    Rcpp (>= 0.12.4)
+LinkingTo: Rcpp
+RoxygenNote: 5.0.1
