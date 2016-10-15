@@ -116,6 +116,36 @@ theta <- function(type, S, X, t, r, v)
     }
 }
 
+# Calculate vanna function
+# S is the stock current price. 
+# X is the strike price at expiration date 
+# t is the time from now until expiration, expressed in years 
+# r is the risk-free interest rate 
+# v is the standard diviation (or volatility) 
+# type: either 0 means call option and 1 means put option
+vanna <- function(type, S, X, t, r, v)
+{
+    d1 <- (log(S/X)+(r+ 0.5 * v^2) * t) / ( v * sqrt(t))
+    d2 <- d1 - v * sqrt(t)
+    # type is irrelevant in this case
+    - pnorm(d1) * d2 / v
+}
+
+# Calculate vomma function
+# S is the stock current price. 
+# X is the strike price at expiration date 
+# t is the time from now until expiration, expressed in years 
+# r is the risk-free interest rate 
+# v is the standard diviation (or volatility) 
+# type: either 0 means call option and 1 means put option
+vomma <- function(type, S, X, t, r, v)
+{
+    d1 <- (log(S/X)+(r+ 0.5 * v^2) * t) / ( v * sqrt(t))
+    d2 <- d1 - v * sqrt(t)
+    # type is irrelevant in this case
+    S * pnorm(d1) * sqrt(t) * d1 * d2 / v
+}
+
 # common call for greeks
 # S is the stock current price. 
 # X is the strike price at expiration date 
