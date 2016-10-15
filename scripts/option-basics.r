@@ -1,3 +1,6 @@
+PUT <- 1
+CALL <- 0
+
 # Calculates call option prices using Black-Scholes method.
 # S is the stock current price.
 # X is the strike price at expiration date
